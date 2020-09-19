@@ -3,9 +3,8 @@ node default {
     ensure => file,
     content => "This is an r10k deplpoyment",
   }
-  
-    file { '/root/README' :
-    ensure => file,
-    content => "Please ignore this",
-  }
+}
+
+node 'master.puppet.vm' {
+  include role::master_server
 }
