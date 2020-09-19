@@ -1,18 +1,17 @@
 node default {
-  file { '/root/README' :
+  file { '/root/README':
     ensure => file,
-    content => "This is an r10k deplpoyment",
+    content => 'This is a readme',
+    owner   => 'root',
   }
 }
-
 node 'master.puppet.vm' {
   include role::master_server
 }
-
-node /^web/ {
+node /^web/ { 
   include role::app_server
 }
-
 node /^db/ {
   include role::db_server
 }
+
